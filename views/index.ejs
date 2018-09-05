@@ -1,0 +1,29 @@
+<% include ./partials/header %>
+
+<div class="ui segment" id="postsContainer">
+    <div class="ui divided items">
+        <% foundPosts.forEach(function(post){ %>
+            <div class="item">
+                <div class="image">
+                    <img src="<%= post.image %>"></img>
+                </div>
+                <div class="content">
+                    <a class="header" href="/posts/<%= post._id %>">
+                        <%= post.title %>
+                    </a>
+                    <div class="meta">
+                        <span class="cinema"><%= post.date.toDateString() %></span>
+                    </div>
+                    <div class="description">
+                        <p><%- post.body.substring(0, 200) %>...</p>
+                    </div>
+                    <div class="extra">
+                        <a class="ui blue right floated inverted button" href="/posts/<%= post._id %>">Read more</a>
+                    </div>
+                </div>   
+            </div>
+        <% }) %>
+    </div>
+</div>    
+
+<% include ./partials/footer %>

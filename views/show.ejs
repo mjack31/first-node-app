@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+
+
+<div class="ui raised segment text container"> 
+    <div class="ui huge header">
+        <%= foundPost.title %> 
+    </div>
+    <h5>
+        <%= foundPost.date.toDateString() %>
+    </h5>
+    <div class="ui clearing divider"></div>
+    <img class="ui rounded image bordered centered" src="<%= foundPost.image %>"></img>
+    <div class="ui section divider"></div>
+    <p>
+        <%- foundPost.body %>
+    </p>
+    <div class="ui clearing divider"></div>
+    <a href="/posts/<%= foundPost._id %>/edit">
+        <button class="ui green inverted button">
+            Edit
+        </button>
+    </a>
+    <form id="deleteBtn"  action="/posts/<%= foundPost._id %>?_method=DELETE" method="POST">
+        <button class="ui red inverted button" >
+            Delete
+        </button>        
+    </form>
+</div>
+    
+
+<% include ./partials/footer %>

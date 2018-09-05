@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+
+<div class="ui raised segment text container">     
+  <form class="ui form" action="/posts/<%= foundPost._id %>?_method=PUT" method="POST">
+    <div class="field">
+      <label>Post title</label>
+      <input type="text" name="post[title]" value="<%= foundPost.title %>">
+    </div>
+    <div class="field">
+      <label>Image</label>
+      <input type="text" name="post[image]" value="<%= foundPost.image %>">
+    </div>
+    <div class="field">
+      <label>Post body</label>
+      <textarea name="post[body]"><%= foundPost.body %></textarea>
+    </div>
+    <button class="ui teal basic button" type="submit">Submit</button>
+  </form>
+</div>
+
+<% include ./partials/footer %>
